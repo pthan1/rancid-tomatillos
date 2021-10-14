@@ -28,7 +28,7 @@ export default App;
 
 
 // Change App into a Class Component
-//Add a constructor
+// Add a constructor
   // In constructor,
     // inherit from parent
     // have a state
@@ -36,11 +36,37 @@ export default App;
       // should have an error property assigned to an empty string
       // loading property
 
+
 // Should have a componentDidMountFunction
-  // Should fetch request all movie data
-  // Should parse data (.then)
-    // Should set state as all movie data
-  // Should have .catch for displaying rendering or fetch error
+  // fetch from URL _____
+    //.then that parses the response object
+    // a .then that invokes a function in utils.js that cleans up the data to what we want to display
+    // Data will reflect:
+    // id
+    // movie
+    // poster_path
+    // backdrop_path
+    // release_date
+    // overview
+    // average_rating
+    // genres
+      // id
+      // name
+    // budget
+    // revenue
+    // runtime
+    // tagline
+
+  // Should set state
+
+// Methods:
+  // showMovieDetails
+    // Should hide banner and cards container
+    // Should show movie details display
+  // hideMovieDetails
+    // Resets selectedMovie property to empty object
+  // displaySelectedMovie
+    // Sets 'selectedMovie' property of selected movie to that movie's information
 
 // Should have a render function
   // return
@@ -49,3 +75,6 @@ export default App;
     // banner HTML
     // Movies component
       //pass props (movie details that we want to display)
+    // if (selectedMovie)
+      // Render MovieDetails component container
+      // Pass selectedMovie property through MovieDetails to be rendered

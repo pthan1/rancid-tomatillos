@@ -23,3 +23,8 @@
 
     // a .then that sets State with the cleaned up data
     // a catch that displays an error message
+
+// Hide function
+// Show function
+
+// Don't forget to export
