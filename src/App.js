@@ -35,13 +35,12 @@ export default App;
       // should have a movies property assigned to an empty array
       // should have an error property assigned to an empty string
       // loading property
+
 // Should have a componentDidMountFunction
-    // fetch from URL _____
-    //.then that parses the response object
-    // a .then that invokes a function in utils.js that cleans up the data to what we want to display
-    // a .then that sets State with the cleaned up data
-    // a catch that displays an error message
-  
+  // Should fetch request all movie data
+  // Should parse data (.then)
+    // Should set state as all movie data
+  // Should have .catch for displaying rendering or fetch error
 
 // Should have a render function
   // return
@@ -50,4 +49,3 @@ export default App;
     // banner HTML
     // Movies component
       //pass props (movie details that we want to display)
-      
