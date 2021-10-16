@@ -1,4 +1,12 @@
 img {
-  width: 20rem;
+  width: 40rem;
   height: auto;
+}
+
+.movie-details-container {
+  padding: 5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
