@@ -1,6 +1,30 @@
 //// Movies
 
-// Import Card
+import React from 'react';
+import Card from './Card';
+
+const Movies = ({showSelectedMovieDetails, allMovieData}) => {
+
+  const movieCards = allMovieData.map( movie => {
+    return (
+      <Card
+        id={movie.id}
+        key={movie.id}
+        title={movie.title}
+        poster_path={movie.poster_path}
+        average_rating={movie.average_rating}
+        showSelectedMovieDetails={showSelectedMovieDetails}
+      />
+    )
+  })
+
+  return (
+    <div className="movies-container">
+      {movieCards}
+    </div>
+  )
+}
+
 
 // Should contain movie cards
 // Should be rendered on page load
@@ -19,3 +43,5 @@
     // New variable should be called movieCards
       // should return Card JSX
       // props should be passed into Card (particularly showMovieDetails)
+
+export default Movies;

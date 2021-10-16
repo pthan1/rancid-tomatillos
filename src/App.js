@@ -1,80 +1,80 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import './Header.js';
+import Movies from './Movies';
+import './tempMoviesData';
+import movieData from './tempMoviesData';
+import './MovieDetails';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	constructor() {
+		super();
+		this.state = {
+			movies: [],
+			error: '',
+			isLoading: false,
+			selectedMovie: {}
+		};
+	}
+
+	componentDidMount = () => {
+    this.setState({ movies: movieData.movies });
+		// fetch from URL _____
+		//.then that parses the response object
+		// a .then that invokes a function in utils.js that cleans up the data to what we want to display
+		// Should set state
+		// Data will reflect:
+		// id
+		// movie
+		// poster_path
+		// backdrop_path
+		// release_date
+		// overview
+		// average_rating
+		// genres
+		// id
+		// name
+		// budget
+		// revenue
+		// runtime
+		// tagline
+	};
+
+	showSelectedMovieDetails = () => {
+		// Should hide banner and cards container
+		// Should show movie details display
+	};
+
+	hideSelectedMovieDetails = () => {
+		this.setState({ selectedMovie: {} });
+	};
+
+	setSelectedMovieToState = (id) => {
+		const selectedMovie = this.state.movies.find((movie) => {
+			return id === this.state.movies.id;
+		});
+		this.setState({ selectedMovie: selectedMovie });
+	};
+
+	render() {
+		return (
+      <main>
+        <h1>Hello</h1>
+        <Movies showSelectedMovieDetails={this.showSelectedMovieDetails} allMovieData={this.state.movies}/>
+      </main>
+    )
+	}
 }
 
+// <Header />
+// two (2) HTML Sidebars // banner HTML
+// <Movies movies={this.state.movies} setSelectedMovieToState={this.setSelectedMovieToState} />
+// {!this.state.movies && <h2>Loading</h2>}
+// {this.state.selectedMovie && (
+// 	<MovieDetails
+// 		selectedMovie={this.state.selectedMovie}
+// 		hideSelectedMovieDetails={this.hideSelectedMovieDetails}
+// 	/>
+// )}
+
 export default App;
-
-//import tempMoviesData.js
-
-
-// Change App into a Class Component
-// Add a constructor
-  // In constructor,
-    // inherit from parent
-    // have a state
-      // should have a movies property assigned to an empty array
-      // should have an error property assigned to an empty string
-      // loading property
-
-
-// Should have a componentDidMountFunction
-  // fetch from URL _____
-    //.then that parses the response object
-    // a .then that invokes a function in utils.js that cleans up the data to what we want to display
-    // Data will reflect:
-    // id
-    // movie
-    // poster_path
-    // backdrop_path
-    // release_date
-    // overview
-    // average_rating
-    // genres
-      // id
-      // name
-    // budget
-    // revenue
-    // runtime
-    // tagline
-
-  // Should set state
-
-// Methods:
-  // showMovieDetails
-    // Should hide banner and cards container
-    // Should show movie details display
-  // hideMovieDetails
-    // Resets selectedMovie property to empty object
-  // displaySelectedMovie
-    // Sets 'selectedMovie' property of selected movie to that movie's information
-
-// Should have a render function
-  // return
-    // Header component
-    // two (2) HTML Sidebars
-    // banner HTML
-    // Movies component
-      //pass props (movie details that we want to display)
-    // if (selectedMovie)
-      // Render MovieDetails component container
-      // Pass selectedMovie property through MovieDetails to be rendered

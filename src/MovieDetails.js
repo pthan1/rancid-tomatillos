@@ -4,20 +4,20 @@
 //
 
 // Props:
-  // hideMovieDetails (passed in from App)
-  // id
-  // movie
-  // poster_path
-  // backdrop_path
-  // release_date
-  // overview
-  // average_rating
-  // genres
-    // id
-    // name
-  // budget
-  // revenue
-  // runtime
-  // tagline
+// hideSelectedMovieDetails (passed in from App)
+// id
+// movie
+// poster_path
+// backdrop_path
+// release_date
+// overview
+// average_rating
+// genres
+// id
+// name
+// budget
+// revenue
+// runtime
+// tagline
 
-// Make button to invoke hideMovieDetails
+// Make button to invoke hideSelectedMovieDetails
