@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import './tempMoviesData';
 import './Header.js';
-import './Movies';
+import Movies from './Movies';
+import './tempMoviesData';
+import movieData from './tempMoviesData';
 import './MovieDetails';
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
 	}
 
 	componentDidMount = () => {
+    this.setState({ movies: movieData.movies });
 		// fetch from URL _____
 		//.then that parses the response object
 		// a .then that invokes a function in utils.js that cleans up the data to what we want to display
@@ -47,29 +49,32 @@ class App extends Component {
 		this.setState({ selectedMovie: {} });
 	};
 
-	setSelectedMovieToState = (event) => {
+	setSelectedMovieToState = (id) => {
 		const selectedMovie = this.state.movies.find((movie) => {
-			return event.target.id === this.state.movies.id;
+			return id === this.state.movies.id;
 		});
 		this.setState({ selectedMovie: selectedMovie });
 	};
 
 	render() {
 		return (
-			<React.Fragment>
-				<Header />
-				// two (2) HTML Sidebars // banner HTML
-				<Movies movies={this.state.movies} setSelectedMovieToState={this.setSelectedMovieToState} />
-				{!this.state.movies && <h2>Loading</h2>}
-				{this.state.selectedMovie && (
-					<MovieDetails
-						selectedMovie={this.state.selectedMovie}
-						hideSelectedMovieDetails={this.hideSelectedMovieDetails}
-					/>
-				)}
-			</React.Fragment>
-		);
+      <main>
+        <h1>Hello</h1>
+        <Movies showSelectedMovieDetails={this.showSelectedMovieDetails} allMovieData={this.state.movies}/>
+      </main>
+    )
 	}
 }
+
+// <Header />
+// two (2) HTML Sidebars // banner HTML
+// <Movies movies={this.state.movies} setSelectedMovieToState={this.setSelectedMovieToState} />
+// {!this.state.movies && <h2>Loading</h2>}
+// {this.state.selectedMovie && (
+// 	<MovieDetails
+// 		selectedMovie={this.state.selectedMovie}
+// 		hideSelectedMovieDetails={this.hideSelectedMovieDetails}
+// 	/>
+// )}
 
 export default App;
