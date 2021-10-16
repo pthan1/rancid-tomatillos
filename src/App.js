@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import './Card.css';
-import './Header.js';
+import Header from './Header.js';
 import Movies from './Movies';
-import './Movies.css'
+import './Movies.css';
 import './tempMoviesData';
 import movieData from './tempMoviesData';
-import './MovieDetails';
+import MovieDetails from './MovieDetails';
+import './MovieDetails.css';
+// import movieDetail'./tempMovieDetail'
 
 class App extends Component {
 	constructor() {
@@ -15,12 +17,13 @@ class App extends Component {
 			movies: [],
 			error: '',
 			isLoading: false,
-			selectedMovie: {}
+			selectedMovie: {},
+			isAMovieSelected: false
 		};
 	}
 
 	componentDidMount = () => {
-    this.setState({ movies: movieData.movies });
+		this.setState({ movies: movieData.movies });
 		// fetch from URL _____
 		//.then that parses the response object
 		// a .then that invokes a function in utils.js that cleans up the data to what we want to display
@@ -42,10 +45,11 @@ class App extends Component {
 		// tagline
 	};
 
-	showSelectedMovieDetails = () => {
-		// Should hide banner and cards container
-		// Should show movie details display
-	};
+	// showSelectedMovieDetails = (id) => {
+	// 	console.log(id);
+	// 	// Should hide banner and cards container
+	// 	// Should show movie details display
+	// };
 
 	hideSelectedMovieDetails = () => {
 		this.setState({ selectedMovie: {} });
@@ -53,20 +57,36 @@ class App extends Component {
 
 	setSelectedMovieToState = (id) => {
 		const selectedMovie = this.state.movies.find((movie) => {
-			return id === this.state.movies.id;
+			return movie.id === id;
 		});
-		this.setState({ selectedMovie: selectedMovie });
+		console.log('id', id);
+		console.log('selectedMovie', selectedMovie);
+		this.setState({ isAMovieSelected: true, selectedMovie: selectedMovie });
+	};
+
+	unsetSelectedMovieFromState = () => {
+		this.setState({ isAMovieSelected: false, selectedMovie: {} });
 	};
 
 	render() {
 		return (
-      <main>
+			<main>
 				<section className="app-body">
-        	<h1>Hello</h1>
-        	<Movies showSelectedMovieDetails={this.showSelectedMovieDetails} allMovieData={this.state.movies}/>
+					<Header />
+					{!this.state.isAMovieSelected ? (
+						<Movies
+							setSelectedMovieToState={this.setSelectedMovieToState}
+							allMovieData={this.state.movies}
+						/>
+					) : (
+						<MovieDetails
+							selectedMovie={this.state.selectedMovie}
+							unsetSelectedMovieFromState={this.unsetSelectedMovieFromState}
+						/>
+					)}
 				</section>
-      </main>
-    )
+			</main>
+		);
 	}
 }
 

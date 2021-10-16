@@ -6,13 +6,16 @@
 .movie-card {
   width: 10rem;
   height: auto;
+  margin-bottom: 1rem;
 }
 
 .movie-card > img {
-  width: 10rem;
+  width: 9rem;
   height: auto;
 }
 
 button {
   width: 15rem;
+  /* border: 0px; */
+  /* background-color: blue; */
 }

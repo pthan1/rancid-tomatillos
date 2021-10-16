@@ -2,6 +2,10 @@ body {
 	background-color: white;
 }
 
+h1 {
+	padding-right: 2rem;
+}
+
 .App {
 	text-align: center;
 }
