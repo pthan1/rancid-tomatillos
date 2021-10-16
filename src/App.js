@@ -21,26 +21,38 @@ class App extends Component {
 
 	componentDidMount = () => {
 		fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-		.then(response => response.json())
+		.then((response) => {
+      if(response.ok)
+      {
+        return response.json();
+      }
+      throw new Error('Something went wrong. Please try again.');
+  	})
 		.then(data => {
 			this.setState({ movies: data.movies })
 		})
+		.catch(error => this.setState({ error: error.toString() }))
 	};
 
 	setSelectedMovieToState = (id) => {
 		fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-		.then(response => response.json())
+		.then((response) => {
+	    if(response.ok)
+	    {
+	      return response.json();
+	    }
+	    throw new Error('Something went wrong. Please try again.');
+	  })
 		.then(data => {
-			this.setState({ selectedMovie: data.movie })
+			if (!this.state.error) {
+				this.setState({ selectedMovie: data.movie, isAMovieSelected: true });
+			}
 		})
-		const selectedMovie = this.state.movies.find((movie) => {
-			return movie.id === id;
-		});
-		this.setState({ isAMovieSelected: true, selectedMovie: selectedMovie });
-	};
+		.catch(error => this.setState({ error: error.toString() }))
+	}
 
 	unsetSelectedMovieFromState = () => {
-		this.setState({ isAMovieSelected: false, selectedMovie: {} });
+		this.setState({ isAMovieSelected: false, selectedMovie: {}, error: '' });
 	};
 
 	render() {
@@ -49,6 +61,7 @@ class App extends Component {
 				<section className="app-body">
 					<aside className="left-sidebar"></aside>
 					<Header />
+					{this.state.error && <h2>{this.state.error}</h2>}
 					{!this.state.isAMovieSelected ? (
 						<Movies
 							setSelectedMovieToState={this.setSelectedMovieToState}

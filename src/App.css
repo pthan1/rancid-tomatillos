@@ -11,7 +11,9 @@ aside,
 	width: 3rem;
 	height: 3rem;
 	background-image: url('./assets/Film_reel_sidebar.png');
+	object-fit: contain;
 }
+
 
 .App {
 	text-align: center;
