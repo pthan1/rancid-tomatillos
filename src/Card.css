@@ -1,0 +1,18 @@
+.card-container {
+  width: 10rem;
+  height: auto;
+}
+
+.movie-card {
+  width: 10rem;
+  height: auto;
+}
+
+.movie-card > img {
+  width: 10rem;
+  height: auto;
+}
+
+button {
+  width: 15rem;
+}

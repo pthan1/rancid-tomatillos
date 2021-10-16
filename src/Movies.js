@@ -8,6 +8,7 @@ const Movies = ({showSelectedMovieDetails, allMovieData}) => {
   const movieCards = allMovieData.map( movie => {
     return (
       <Card
+        className={'card'}
         id={movie.id}
         key={movie.id}
         title={movie.title}

@@ -1,6 +1,16 @@
+body {
+	background-color: white;
+}
+
 .App {
 	text-align: center;
 }
+
+/* .app-body {
+	height: 100%;
+	width: 100%;
+	background-color: blue;
+} */
 
 .App-logo {
 	height: 40vmin;
@@ -35,6 +45,11 @@
 	to {
 		transform: rotate(360deg);
 	}
+}
+
+.card {
+  border: 5px solid blue;
+  opacity: 50%;
 }
 
 .hidden {
