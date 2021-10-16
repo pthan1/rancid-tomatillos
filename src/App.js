@@ -7,6 +7,7 @@ import './Movies.css'
 import './tempMoviesData';
 import movieData from './tempMoviesData';
 import './MovieDetails';
+import './MovieDetails.css';
 
 class App extends Component {
 	constructor() {
@@ -42,7 +43,8 @@ class App extends Component {
 		// tagline
 	};
 
-	showSelectedMovieDetails = () => {
+	showSelectedMovieDetails = (id) => {
+		console.log(id);
 		// Should hide banner and cards container
 		// Should show movie details display
 	};
@@ -63,7 +65,7 @@ class App extends Component {
       <main>
 				<section className="app-body">
         	<h1>Hello</h1>
-        	<Movies showSelectedMovieDetails={this.showSelectedMovieDetails} allMovieData={this.state.movies}/>
+        	<Movies setSelectedMovieToState={this.setSelectedMovieToState} allMovieData={this.state.movies}/>
 				</section>
       </main>
     )

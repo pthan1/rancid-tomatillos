@@ -3,7 +3,7 @@
 import React from 'react';
 import Card from './Card';
 
-const Movies = ({showSelectedMovieDetails, allMovieData}) => {
+const Movies = ({setSelectedMovieToState, allMovieData}) => {
 
   const movieCards = allMovieData.map( movie => {
     return (
@@ -14,7 +14,7 @@ const Movies = ({showSelectedMovieDetails, allMovieData}) => {
         title={movie.title}
         poster_path={movie.poster_path}
         average_rating={movie.average_rating}
-        showSelectedMovieDetails={showSelectedMovieDetails}
+        setSelectedMovieToState={setSelectedMovieToState}
       />
     )
   })
