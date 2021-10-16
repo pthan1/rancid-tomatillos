@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import './Card.css';
 import './Header.js';
 import Movies from './Movies';
+import './Movies.css'
 import './tempMoviesData';
 import movieData from './tempMoviesData';
 import './MovieDetails';
@@ -59,8 +61,10 @@ class App extends Component {
 	render() {
 		return (
       <main>
-        <h1>Hello</h1>
-        <Movies showSelectedMovieDetails={this.showSelectedMovieDetails} allMovieData={this.state.movies}/>
+				<section className="app-body">
+        	<h1>Hello</h1>
+        	<Movies showSelectedMovieDetails={this.showSelectedMovieDetails} allMovieData={this.state.movies}/>
+				</section>
       </main>
     )
 	}

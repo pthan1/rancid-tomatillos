@@ -4,10 +4,12 @@ import React from 'react';
 
 const Card = ({showMovieDetails, id, title, poster_path, average_rating}) => {
   return (
-    <button className="movie-card" onClick={() => showMovieDetails(id)}>
-      <img src={poster_path} alt="Movie poster" />
-      <h3>{title}</h3>
-    </button>
+    <article className="card-container">
+      <button className="movie-card" onClick={() => showMovieDetails(id)}>
+        <img src={poster_path} alt="Movie poster" />
+        <h3>{title}</h3>
+      </button>
+    </article>
   )
 }
 
