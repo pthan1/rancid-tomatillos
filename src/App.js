@@ -23,7 +23,17 @@ class App extends Component {
 	}
 
 	componentDidMount = () => {
-		this.setState({ movies: movieData.movies });
+		// this.setState({ movies: movieData.movies });
+
+		fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+		.then(response => response.json())
+		.then(data => {
+			this.setState({ movies: data.movies })
+		})
+
+		// fetch('http://example.com/movies.json')
+  	// .then(response => response.json())
+  	// .then(data => console.log(data));
 		// fetch from URL _____
 		//.then that parses the response object
 		// a .then that invokes a function in utils.js that cleans up the data to what we want to display
@@ -72,6 +82,7 @@ class App extends Component {
 		return (
 			<main>
 				<section className="app-body">
+					<aside className="left-sidebar"></aside>
 					<Header />
 					{!this.state.isAMovieSelected ? (
 						<Movies
@@ -84,6 +95,7 @@ class App extends Component {
 							unsetSelectedMovieFromState={this.unsetSelectedMovieFromState}
 						/>
 					)}
+					<aside className="right-sidebar"></aside>
 				</section>
 			</main>
 		);
