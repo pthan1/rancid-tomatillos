@@ -9,6 +9,9 @@ const MovieDetails = ({ selectedMovie, unsetSelectedMovieFromState }) => {
 				<img src={selectedMovie.backdrop_path} alt="still from a movie" />
 				<p>{selectedMovie.budget}</p>
 				<p>{selectedMovie.overview}</p>
+				<button className="return-to-main-button" onClick={unsetSelectedMovieFromState}>
+					Return to Main
+				</button>
 			</section>
 		</div>
 	);
