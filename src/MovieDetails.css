@@ -1,12 +1,29 @@
 img {
-  width: 40rem;
+  width: 50rem;
   height: auto;
 }
 
 .movie-details-container {
-  padding: 5rem;
+  padding: 8rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.movie-details {
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movie-details > button {
+  color: white;
+  background-color: #1aaf37;
+  border: 0px;
+  height: 3rem;
+  width: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }

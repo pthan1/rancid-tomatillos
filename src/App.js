@@ -60,20 +60,22 @@ class App extends Component {
 			<main>
 				<section className="app-body">
 					<aside className="left-sidebar"></aside>
-					<Header />
-					{this.state.error && <h2>{this.state.error}</h2>}
-					{!this.state.isAMovieSelected ? (
-						<Movies
-							setSelectedMovieToState={this.setSelectedMovieToState}
-							allMovieData={this.state.movies}
-						/>
-					) : (
-						<MovieDetails
-							selectedMovie={this.state.selectedMovie}
-							unsetSelectedMovieFromState={this.unsetSelectedMovieFromState}
-						/>
-					)}
 					<aside className="right-sidebar"></aside>
+					<Header />
+					<section className="all-movies-container">
+						{this.state.error && <h2>{this.state.error}</h2>}
+						{!this.state.isAMovieSelected ? (
+							<Movies
+								setSelectedMovieToState={this.setSelectedMovieToState}
+								allMovieData={this.state.movies}
+							/>
+						) : (
+							<MovieDetails
+								selectedMovie={this.state.selectedMovie}
+								unsetSelectedMovieFromState={this.unsetSelectedMovieFromState}
+							/>
+						)}
+					</section>
 				</section>
 			</main>
 		);

@@ -4,18 +4,24 @@
 }
 
 .movie-card {
+  font-family: Helvetica;
+  color: #2d0702;
   width: 10rem;
   height: auto;
   margin-bottom: 1rem;
+  /* border: 1px solid black; */
+  box-shadow: 3px 3px 3px black;
 }
 
 .movie-card > img {
+  padding-top: .3rem;
   width: 9rem;
   height: auto;
 }
 
 button {
   width: 15rem;
-  /* border: 0px; */
-  /* background-color: blue; */
+  background: rgb(145,24,6);
+  background: linear-gradient(180deg, rgba(145,24,6,1) 0%, rgba(212,30,0,1) 50%, rgba(255,255,255,1) 97%);
+  border: 0px;
 }

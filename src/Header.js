@@ -2,7 +2,11 @@ import React from 'react';
 import './Header.css';
 
 const Header = () => {
-	return <p>Hello</p>;
+	return (
+		<header className="header">
+			<h1>ⓧ rancid tomatillos ⓧ</h1>
+		</header>
+	)
 };
 
 export default Header;

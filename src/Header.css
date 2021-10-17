@@ -1,0 +1,23 @@
+header {
+  position: static;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 5rem;
+  width: auto;
+  padding-top: 1.5rem;
+  padding-bottom: .8rem;
+  margin-bottom: 2rem;
+  background-color: #911808;
+  box-shadow: 3px 3px 3px black;
+}
+
+header > h1 {
+  color: white;
+  font-family: Helvetica;
+  font-weight: lighter;
+  font-size: 3.5rem;
+  margin: 0px;
+  padding: 0px;
+}
