@@ -1,6 +1,7 @@
 .movies-container {
   display: grid;
-  grid-template-columns: repeat(6, 12rem);
-  padding: 3rem;
+  grid-template-columns: repeat(6, 11.2rem);
+  padding-left: 7rem;
+  padding-right: 7rem;
   padding-top: 1rem;
 }
