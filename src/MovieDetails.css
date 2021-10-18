@@ -4,26 +4,36 @@ img {
 }
 
 .movie-details-container {
-  padding: 8rem;
+  padding: 1rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  background-color: #9ebf26;
 }
 
 .movie-details {
+  background-color: white;
+  padding: 2rem;
   width: 50rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.movie-details > button {
+.return-button-container > button {
   color: white;
-  background-color: #1aaf37;
+  background-color: #D41E00;
   border: 0px;
+  box-shadow: 2px 2px 2px black;
   height: 3rem;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.return-button-container > button > h3 {
+  font-family: 'Helvetica';
+  padding-bottom: 1rem;
 }

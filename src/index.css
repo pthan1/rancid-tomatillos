@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'Tomatoes';
+  src: local('Tomatoes'), url(./fonts/Tomatoes.ttf) format('truetype');
+}

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import './MovieDetails.css';
 import './Card.css';
 import Header from './Header.js';
 import Movies from './Movies';
 import './Movies.css';
 import MovieDetails from './MovieDetails';
-import './MovieDetails.css';
+import './assets/johnny-automatic-tomatillo.svg';
 
 class App extends Component {
 	constructor() {
@@ -62,6 +63,11 @@ class App extends Component {
 					<aside className="left-sidebar"></aside>
 					<aside className="right-sidebar"></aside>
 					<Header />
+					<div className="banner">
+						<section className="banner-text">
+							<h2>Testing this element. Wow.</h2>
+						</section>
+					</div>
 					<section className="all-movies-container">
 						{this.state.error && <h2>{this.state.error}</h2>}
 						{!this.state.isAMovieSelected ? (

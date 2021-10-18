@@ -16,8 +16,7 @@ h1 {
 aside {
 	position: absolute;
 	width: 6rem;
-	height: 150rem;
-	/* height: 100vh; */
+	height: 165rem;
 	background-image: url('./assets/Film_reel_red_variation.png');
 	background-repeat: repeat-y;
 	background-size: 6rem;
@@ -31,7 +30,7 @@ aside {
 
 .right-sidebar {
 	right: 0;
-	 box-shadow: 3px 3px 3px 3px black;
+	box-shadow: 3px 3px 3px 3px black;
 }
 
 .all-movies-container {
@@ -41,10 +40,32 @@ aside {
 }
 
 .app-body {
-	height: 150rem;
+	height: 165rem;
 	margin: 0px;
 	padding: 0px;
 	background-color: #e2e2e2;
+}
+
+.banner {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	height: 15rem;
+	width: auto;
+	background: rgb(38,208,255);
+	background: linear-gradient(124deg, rgba(38,208,255,1) 0%, rgba(157,234,255,1) 50%, rgba(255,241,160,1) 50%, rgba(255,255,255,1) 94%);
+	border-top: 1rem solid #2e2e2e;
+	border-bottom: 1rem solid #2e2e2e;
+}
+
+.banner-text {
+	color: #ffac1e;
+	font-family: 'Tomatoes';
+	font-size: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-shadow: 2px 2px 2px black;
 }
 
 .App {
