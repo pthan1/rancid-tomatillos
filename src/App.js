@@ -89,12 +89,14 @@ class App extends Component {
 							path="/movies/:id"
 							render={({ match }) => {
 								let selectedMovieId = parseInt(match.params.id);
-								this.getSelectedMovie(selectedMovieId);
+								// this.getSelectedMovie(selectedMovieId);
 								if (!this.state.error) {
+									// console.log('tests');
 									return (
 										<MovieDetails
 											selectedMovie={this.state.selectedMovie}
 											unsetSelectedMovieFromState={this.unsetSelectedMovieFromState}
+											selectedMovieId={selectedMovieId}
 										/>
 									);
 								}
