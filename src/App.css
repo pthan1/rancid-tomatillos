@@ -26,6 +26,7 @@ aside {
   margin-right: 0px;
   border: 0px;
   box-shadow: 3px 3px 3px black;
+  z-index: 2;
 }
 
 .right-sidebar {
