@@ -1,28 +1,24 @@
 import React, { Component } from 'react';
-import './App.css';
-import './MovieDetails.css';
-import './Card.css';
-import Header from './Header.js';
-import Movies from './Movies';
-import './Movies.css';
-import MovieDetails from './MovieDetails';
-import './assets/johnny-automatic-tomatillo.svg';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-import getSelectedMovie from './FetchCalls';
+import Header from './Header';
+import Movies from './Movies';
+import MovieDetails from './MovieDetails';
+import './App.css';
+import './Movies.css';
+import './Card.css';
+import './MovieDetails.css';
+import './assets/johnny-automatic-tomatillo.svg';
 
 class App extends Component {
 	constructor() {
 		super();
 		this.state = {
 			movies: [],
-			error: '',
-			isLoading: false,
-			selectedMovie: {}
+			error: ''
 		};
 	}
 
 	componentDidMount = () => {
-		console.log('something');
 		fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
 			.then((response) => {
 				if (response.ok) {
@@ -64,7 +60,6 @@ class App extends Component {
 							<h2>Testing this element. Wow.</h2>
 						</section>
 					</div>
-
 					<section className="all-movies-container">
 						{this.state.error && <h2>{this.state.error}</h2>}
 						<Route
@@ -89,13 +84,10 @@ class App extends Component {
 							path="/movies/:id"
 							render={({ match }) => {
 								let selectedMovieId = parseInt(match.params.id);
-								// this.getSelectedMovie(selectedMovieId);
 								if (!this.state.error) {
-									// console.log('tests');
 									return (
 										<MovieDetails
-											selectedMovie={this.state.selectedMovie}
-											unsetSelectedMovieFromState={this.unsetSelectedMovieFromState}
+											// selectedMovie={this.state.selectedMovie}
 											selectedMovieId={selectedMovieId}
 										/>
 									);
@@ -141,22 +133,5 @@ class App extends Component {
 // // this.state.selectedMovie.id
 // Start by changing URL
 // }
-
-// setSelectedMovieToState = (id) => {
-// 	this.setState({ isAMovieSelected: true });
-// 	fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-// 		.then((response) => {
-// 			if (response.ok) {
-// 				return response.json();
-// 			}
-// 			throw new Error("Something went wrong. Please try again.");
-// 		})
-// 		.then((data) => {
-// 			if (!this.state.error) {
-// 				this.setState({ selectedMovie: data.movie });
-// 			}
-// 		})
-// 		.catch((error) => this.setState({ error: error.toString() }));
-// };
 
 export default App;
