@@ -1,39 +1,92 @@
-img {
-  width: 50rem;
+.movie-backdrop {
+  margin-top: 2rem;
+  width: 70rem;
   height: auto;
+  border: 1rem solid #b5e27a;
 }
 
 .movie-details-container {
-  padding: 1rem;
-  margin-top: 2rem;
+  position: relative;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
-  background-color: #9ebf26;
 }
 
-.movie-details {
+.movie-information-background {
+  position: absolute;
+  top: 11%;
+  left: 3%;
+  width: 38%;
+  height: 83%;
   background-color: white;
-  padding: 2rem;
-  width: 50rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  opacity: 88%;
+  border-radius: 1rem;
 }
 
-.return-button-container > button {
+.movie-information {
+  width: 34%;
+  height: 80%;
+  font-size: 1.5rem;
+  height: 70%;
+  color: black;
+  position: absolute;
+  top: 12%;
+  left: 0;
+  z-index: 2;
+  margin-left: 4rem;
+  overflow-y: scroll;
+}
+
+.movie-title {
+  font-family: "Tomatoes";
+  font-size: 2.5rem;
+  color: #d51c01;
+  margin: 0px;
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+  text-shadow: 1px 1px 1px black;
+}
+
+.movie-overview {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  /* background-color: white; */
+  padding: 0.5rem;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  border-radius: 1rem;
+}
+
+.movie-genres {
+  font-size: 1rem;
+  margin: 0px;
+}
+
+.rating-number {
+  font-size: 2rem;
+  font-family: "Tomatoes";
+  color: #d51c01;
+  margin: 0px;
+  margin-left: 0.5rem;
+}
+
+.return-to-main-button {
+  position: absolute;
+  top: 90%;
+  font-family: "Tomatoes";
+  font-size: 1.5rem;
+  background-color: #d51c01;
   color: white;
-  background-color: #D41E00;
+  /* background-color: #d41e00; */
   border: 0px;
   box-shadow: 2px 2px 2px black;
-  height: 3rem;
+  height: 2.5rem;
   width: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  opacity: 100%;
 }
 
-.return-button-container > button > h3 {
-  font-family: 'Helvetica';
-  padding-bottom: 1rem;
+.return-to-main-button:hover {
+  background-color: #74aa29;
 }
