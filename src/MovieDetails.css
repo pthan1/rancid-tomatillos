@@ -50,7 +50,6 @@
 .movie-overview {
   font-size: 1.1rem;
   line-height: 1.5rem;
-  /* background-color: white; */
   padding: 0.5rem;
   padding-left: 0rem;
   padding-right: 0rem;
@@ -77,7 +76,6 @@
   font-size: 1.5rem;
   background-color: #d51c01;
   color: white;
-  /* background-color: #d41e00; */
   border: 0px;
   box-shadow: 2px 2px 2px black;
   height: 2.5rem;
