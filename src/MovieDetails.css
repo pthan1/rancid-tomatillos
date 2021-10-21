@@ -1,90 +1,90 @@
 .movie-backdrop {
-  margin-top: 2rem;
-  width: 70rem;
-  height: auto;
-  border: 1rem solid #b5e27a;
+	margin-top: 2rem;
+	width: 70rem;
+	height: auto;
+	border: 1rem solid #b5e27a;
 }
 
 .movie-details-container {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
 .movie-information-background {
-  position: absolute;
-  top: 11%;
-  left: 3%;
-  width: 38%;
-  height: 83%;
-  background-color: white;
-  opacity: 88%;
-  border-radius: 1rem;
+	position: absolute;
+	top: 11%;
+	left: 3%;
+	width: 38%;
+	height: 83%;
+	background-color: white;
+	opacity: 88%;
+	border-radius: 1rem;
 }
 
 .movie-information {
-  width: 34%;
-  height: 80%;
-  font-size: 1.5rem;
-  height: 70%;
-  color: black;
-  position: absolute;
-  top: 12%;
-  left: 0;
-  z-index: 2;
-  margin-left: 4rem;
-  overflow-y: scroll;
+	width: 34%;
+	height: 80%;
+	font-size: 1.5rem;
+	height: 70%;
+	color: black;
+	position: absolute;
+	top: 12%;
+	left: 0;
+	z-index: 2;
+	margin-left: 4rem;
+	overflow-y: scroll;
 }
 
 .movie-title {
-  font-family: "Tomatoes";
-  font-size: 2.5rem;
-  color: #d51c01;
-  margin: 0px;
-  margin-top: 1rem;
-  margin-bottom: 0.8rem;
-  text-shadow: 1px 1px 1px black;
+	font-family: "Tomatoes";
+	font-size: 2.5rem;
+	color: #d51c01;
+	margin: 0px;
+	margin-top: 1rem;
+	margin-bottom: 0.8rem;
+	text-shadow: 1px 1px 1px black;
 }
 
 .movie-overview {
-  font-size: 1.1rem;
-  line-height: 1.5rem;
-  padding: 0.5rem;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  border-radius: 1rem;
+	font-size: 1.1rem;
+	line-height: 1.5rem;
+	padding: 0.5rem;
+	padding-left: 0rem;
+	padding-right: 0rem;
+	border-radius: 1rem;
 }
 
 .movie-genres {
-  font-size: 1rem;
-  margin: 0px;
+	font-size: 1rem;
+	margin: 0px;
 }
 
 .rating-number {
-  font-size: 2rem;
-  font-family: "Tomatoes";
-  color: #d51c01;
-  margin: 0px;
-  margin-left: 0.5rem;
+	font-size: 2rem;
+	font-family: "Tomatoes";
+	color: #d51c01;
+	margin: 0px;
+	margin-left: 0.5rem;
 }
 
 .return-to-main-button {
-  position: absolute;
-  top: 90%;
-  font-family: "Tomatoes";
-  font-size: 1.5rem;
-  background-color: #d51c01;
-  color: white;
-  border: 0px;
-  box-shadow: 2px 2px 2px black;
-  height: 2.5rem;
-  width: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  opacity: 100%;
+	position: absolute;
+	top: 90%;
+	font-family: "Tomatoes";
+	font-size: 1.5rem;
+	background-color: #d51c01;
+	color: white;
+	border: 0px;
+	box-shadow: 2px 2px 2px black;
+	height: 2.5rem;
+	width: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	opacity: 100%;
 }
 
 .return-to-main-button:hover {
-  background-color: #74aa29;
+	background-color: #74aa29;
 }
