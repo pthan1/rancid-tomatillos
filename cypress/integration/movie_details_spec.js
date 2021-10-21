@@ -40,7 +40,7 @@ describe('Movie Details page flows', () => {
 			})
 			.visit('http://localhost:3000')
 			.get('.movie-card')
-			.click();
+			.click({ force: true });
 	});
 
 	it('Should have an option for returning to the All Movies view', () => {
