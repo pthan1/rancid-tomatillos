@@ -27,7 +27,10 @@ class App extends Component {
 				throw new Error('Something went wrong. Please try again.');
 			})
 			.then((data) => {
-				this.setState({ movies: data.movies });
+				const cardMovieData = data.movies.map((movie) => {
+					return { id: movie.id, poster_path: movie.poster_path, title: movie.title };
+				});
+				this.setState({ movies: cardMovieData });
 			})
 			.catch((error) => this.setState({ error: error.toString() }));
 	};
@@ -70,12 +73,7 @@ class App extends Component {
 									this.setState({ error: '' });
 								}
 								if (!this.state.error) {
-									return (
-										<Movies
-											getSelectedMovie={this.getSelectedMovie}
-											allMovieData={this.state.movies}
-										/>
-									);
+									return <Movies allMovieData={this.state.movies} />;
 								}
 							}}
 						/>
@@ -85,12 +83,7 @@ class App extends Component {
 							render={({ match }) => {
 								let selectedMovieId = parseInt(match.params.id);
 								if (!this.state.error) {
-									return (
-										<MovieDetails
-											// selectedMovie={this.state.selectedMovie}
-											selectedMovieId={selectedMovieId}
-										/>
-									);
+									return <MovieDetails selectedMovieId={selectedMovieId} />;
 								}
 							}}
 						/>
@@ -100,45 +93,5 @@ class App extends Component {
 		);
 	}
 }
-
-// function scrollFunction() {
-//   let header = document.querySelector(".header");
-//   if (document.body.scrollTop > 90 || document.documentElement.scrollTop > 90) {
-//     header.style.padding = "25px";
-//   }
-// }
-
-// <Route path="/" render={() => {
-// 	<section className="all-movies-container">
-// 		<Movies
-// 			setSelectedMovieToState={this.setSelectedMovieToState}
-// 			allMovieData={this.state.movies}
-// 		/>
-// 	</section>
-// }} />
-// {!this.state.isAMovieSelected ? (
-//   <Movies
-//     setSelectedMovieToState={this.setSelectedMovieToState}
-//     allMovieData={this.state.movies}
-//   />
-// )
-// : (
-//   <MovieDetails
-//     selectedMovie={this.state.selectedMovie}
-//     unsetSelectedMovieFromState={this.unsetSelectedMovieFromState}
-//   />
-// )}
-// </section>
-
-// const whatever = {
-// // On page load, the router ("/") should render all of the movies in state as cards
-// 	// Movies component
-// 	// allMovieData as props
-// // If a movie is clicked, the router should redirect to "/movies/:id"
-// 	// Keep all props
-// 	// Grab ID from button click and pull it into the route
-// // this.state.selectedMovie.id
-// Start by changing URL
-// }
 
 export default App;
