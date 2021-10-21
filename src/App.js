@@ -101,6 +101,13 @@ class App extends Component {
 	}
 }
 
+// function scrollFunction() {
+//   let header = document.querySelector(".header");
+//   if (document.body.scrollTop > 90 || document.documentElement.scrollTop > 90) {
+//     header.style.padding = "25px";
+//   }
+// }
+
 // <Route path="/" render={() => {
 // 	<section className="all-movies-container">
 // 		<Movies

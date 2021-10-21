@@ -1,5 +1,6 @@
 header {
-  position: static;
+  position: sticky;
+  top: -1px;
   margin: 0px;
   display: flex;
   flex-direction: row;
@@ -35,9 +36,16 @@ header > h1 {
 .tomatillo-container > img {
   transform: rotate(30deg);
   height: 9.5rem;
-  width: 9.5rem;
+  width: auto;
   margin-top: -1.3rem;
   margin-left: -1.5rem;
   opacity: 90%;
   z-index: 0;
+}
+
+header,
+header > h1,
+.tomatillo-container,
+.tomatillo-container > img {
+  transition-duration: 0.3s;
 }

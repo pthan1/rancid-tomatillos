@@ -27,10 +27,21 @@
 .movie-card:hover {
   opacity: 100%;
   box-shadow: 3px 3px 3px black;
+  width: 10.3rem;
+  padding-top: 0.3rem;
+  margin-top: -0.2rem;
+  margin-left: -0.15rem;
 }
 
 .movie-card > img {
   padding-top: 0.3rem;
   width: 9rem;
+  height: auto;
+  transition-duration: 0.15s;
+}
+
+.movie-card:hover > img {
+  padding-top: 0.3rem;
+  width: 9.3rem;
   height: auto;
 }
