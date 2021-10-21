@@ -7,7 +7,7 @@ header {
   height: 7rem;
   width: auto;
   padding-top: 1.5rem;
-  padding-bottom: .8rem;
+  padding-bottom: 0.8rem;
   background-color: #911808;
   box-shadow: 3px 3px 3px black;
   z-index: 1;
@@ -23,6 +23,7 @@ header > h1 {
   padding-top: 1rem;
   z-index: 1;
   text-shadow: 2px 2px 2px black;
+  cursor: default;
 }
 
 .tomatillo-container {

@@ -5,29 +5,32 @@
 
 .movie-card {
   font-family: Helvetica;
-  color: #2d0702;
+  color: white;
   width: 10rem;
   height: auto;
   margin-bottom: 1rem;
   /* border: 1px solid black; */
   box-shadow: 2px 2px 2px gray;
   opacity: 80%;
+  background: rgb(145, 24, 9);
+  background: linear-gradient(
+    135deg,
+    rgba(145, 24, 9, 1) 0%,
+    rgba(213, 28, 1, 1) 92%,
+    rgba(255, 61, 33, 1) 92%
+  );
+  border: 0px;
+  transition-duration: 0.15s;
+  text-shadow: 1px 1px 1px black;
 }
 
 .movie-card:hover {
   opacity: 100%;
-  box-shadow: 3px 3px 3px #0b566b;
+  box-shadow: 3px 3px 3px black;
 }
 
 .movie-card > img {
-  padding-top: .3rem;
+  padding-top: 0.3rem;
   width: 9rem;
   height: auto;
-}
-
-.movie-card {
-  width: auto;
-  background: rgb(145,24,6);
-  background: linear-gradient(180deg, rgba(145,24,6,1) 60%, rgba(212,30,0,1) 82%, rgba(255,255,255,1) 97%);
-  border: 0px;
 }
