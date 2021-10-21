@@ -69,9 +69,6 @@ class App extends Component {
 							exact
 							path="/"
 							render={() => {
-								if (this.state.error) {
-									this.setState({ error: '' });
-								}
 								if (!this.state.error) {
 									return <Movies allMovieData={this.state.movies} />;
 								}

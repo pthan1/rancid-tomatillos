@@ -7,7 +7,7 @@ describe('Main page flows', () => {
 
 	it('Should not display any movies when a fetch request fails', () => {
 		cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-			statusCode: 200
+			statusCode: 500
 		});
 		cy.visit('http://localhost:3000').get('.movies-container').should('be.empty');
 	});
@@ -123,7 +123,7 @@ describe('Main page flows', () => {
 			})
 			.visit('http://localhost:3000')
 			.get('.movie-card')
-			.click()
+			.click({ force: true })
 			.get('.movie-details-container')
 			.should('be.visible')
 			.get('p')
