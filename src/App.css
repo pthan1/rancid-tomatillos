@@ -1,110 +1,117 @@
 html {
-	margin: 0px;
-	padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
-	background-color: white;
-	margin: 0px;
-	padding: 0px;
+  background-color: white;
+  margin: 0px;
+  padding: 0px;
 }
 
 h1 {
-	padding-right: 2rem;
+  padding-right: 2rem;
 }
 
 aside {
-	position: absolute;
-	width: 6rem;
-	height: 165rem;
-	background-image: url('./assets/Film_reel_red_variation.png');
-	background-repeat: repeat-y;
-	background-size: 6rem;
-	object-fit: contain;
-	overflow-y: hidden;
-	padding-right: 0px;
-	margin-right: 0px;
-	border: 0px;
-	box-shadow: 3px 3px 3px black;
+  position: absolute;
+  width: 6rem;
+  height: 165rem;
+  background-image: url("./assets/Film_reel_red_variation.png");
+  background-repeat: repeat-y;
+  background-size: 6rem;
+  object-fit: contain;
+  overflow-y: hidden;
+  padding-right: 0px;
+  margin-right: 0px;
+  border: 0px;
+  box-shadow: 3px 3px 3px black;
 }
 
 .right-sidebar {
-	right: 0;
-	box-shadow: 3px 3px 3px 3px black;
+  right: 0;
+  box-shadow: 3px 3px 3px 3px black;
 }
 
 .all-movies-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .app-body {
-	height: 165rem;
-	margin: 0px;
-	padding: 0px;
-	background-color: #e2e2e2;
+  height: 165rem;
+  margin: 0px;
+  padding: 0px;
+  background-color: #e2e2e2;
 }
 
 .banner {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	height: 15rem;
-	width: auto;
-	background: rgb(38,208,255);
-	background: linear-gradient(124deg, rgba(38,208,255,1) 0%, rgba(157,234,255,1) 50%, rgba(255,241,160,1) 50%, rgba(255,255,255,1) 94%);
-	border-top: 1rem solid #2e2e2e;
-	border-bottom: 1rem solid #2e2e2e;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 15rem;
+  width: auto;
+  background: rgb(38, 208, 255);
+  background: linear-gradient(
+    124deg,
+    rgba(38, 208, 255, 1) 0%,
+    rgba(157, 234, 255, 1) 50%,
+    rgba(255, 241, 160, 1) 50%,
+    rgba(255, 255, 255, 1) 94%
+  );
+  border-top: 1rem solid #2e2e2e;
+  border-bottom: 1rem solid #2e2e2e;
 }
 
 .banner-text {
-	color: #ffac1e;
-	font-family: 'Tomatoes';
-	font-size: 2rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-shadow: 2px 2px 2px black;
+  color: #ffac1e;
+  font-family: "Tomatoes";
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-shadow: 2px 2px 2px black;
+  cursor: default;
 }
 
 .App {
-	text-align: center;
+  text-align: center;
 }
 
 .App-logo {
-	height: 40vmin;
-	pointer-events: none;
+  height: 40vmin;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-	.App-logo {
-		animation: App-logo-spin infinite 20s linear;
-	}
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 .App-header {
-	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-link {
-	color: #61dafb;
+  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .card {
@@ -113,5 +120,5 @@ aside {
 }
 
 .hidden {
-	display: none;
+  display: none;
 }
