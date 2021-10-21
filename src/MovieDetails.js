@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class MovieDetails extends Component {
-	// ({ selectedMovie, unsetSelectedMovieFromState, selectedMovieId }) => {
 	constructor() {
 		super();
 		this.state = {
@@ -12,7 +10,6 @@ class MovieDetails extends Component {
 	}
 
 	componentDidMount = () => {
-		console.log(this.props);
 		fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.selectedMovieId}`)
 			.then((response) => {
 				if (response.ok) {
@@ -34,15 +31,11 @@ class MovieDetails extends Component {
 					<p>{this.state.selectedMovie.title}</p>
 					<p>{this.state.selectedMovie.revenue}</p>
 					<div className="return-button-container">
-						<Link to="/">
-							<button
-								className="return-to-main-button"
-								id="returnToMain"
-								// onClick={unsetSelectedMovieFromState}
-							>
+						<NavLink to="/">
+							<button className="return-to-main-button" id="returnToMain">
 								Return to main
 							</button>
-						</Link>
+						</NavLink>
 					</div>
 				</section>
 			</div>
