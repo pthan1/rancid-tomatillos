@@ -14,7 +14,8 @@ class App extends Component {
 		super();
 		this.state = {
 			movies: [],
-			error: ''
+			error: '',
+			ratings: []
 		};
 	}
 
@@ -33,6 +34,9 @@ class App extends Component {
 				this.setState({ movies: cardMovieData });
 			})
 			.catch((error) => this.setState({ error: error.toString() }));
+		fetch('/api/v1/ratings')
+			.then(response => response.json())
+			.then(ratings => this.setState({ ratings: ratings.ratings }))
 	};
 
 	getSelectedMovie = (id) => {
