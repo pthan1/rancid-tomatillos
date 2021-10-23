@@ -48,4 +48,24 @@ describe('Movie Details page flows', () => {
 		cy.get('.movie-card').should('be.visible');
 		cy.get('.movie-details-container').should('not.exist');
 	});
+
+	it('Should have an option to add a user rating', () => {
+
+	});
+
+	it("Should receive an input for the user's rating", () => {
+
+	});
+
+	it("Should be able to delete a rating", () => {
+
+	});
+
+	it("Should display a user's rating after it is added", () => {
+
+	});
+
+	it("Should be able to update a previous rating", () => {
+
+	});
 });
