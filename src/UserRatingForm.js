@@ -5,15 +5,14 @@ class Form extends Component {
   constructor() {
     super();
     this.state={
-      rating: '',
+      rating: 0,
     }
   }
 
-  setRating = (event) => {
+  submitIndividualUserRating = (event) => {
     event.preventDefault();
     this.setState({ rating: parseInt(event.target.innerText)})
-    console.log(typeof(this.state.rating));
-    console.log(this.state.rating);
+    this.props.addUserRating(this.state.rating);
   }
 
   render() {
@@ -23,7 +22,7 @@ class Form extends Component {
           <div className="rating-header">
             <div className="rating-header-title">Rate This Movie: </div>
           </div>
-          <div className="dd-list" onClick={this.setRating}>
+          <div className="dd-list" onClick={this.submitIndividualUserRating}>
             <button className="rating-1">1</button>
             <button className="rating-2">2</button>
             <button className="rating-3">3</button>

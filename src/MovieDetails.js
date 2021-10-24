@@ -46,6 +46,10 @@ class MovieDetails extends Component {
 			.catch((error) => this.setState({ error: error.toString() }));
 	};
 
+	addUserRating = (newRating) => {
+		this.setState({userRating: newRating})
+	}
+
 	render() {
 		return (
 			<div className="movie-details-container">
@@ -73,7 +77,7 @@ class MovieDetails extends Component {
 									Return to main
 								</button>
 							</Link>
-							<Form />
+							<Form addUserRating={this.addUserRating}/>
 						</div>
 					</div>
 				</section>
