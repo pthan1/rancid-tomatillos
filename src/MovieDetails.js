@@ -5,7 +5,9 @@ class MovieDetails extends Component {
 	constructor() {
 		super();
 		this.state = {
-			selectedMovie: {}
+			selectedMovie: {},
+			movieRatings: [],
+			userRating: 0
 		};
 	}
 
@@ -21,27 +23,43 @@ class MovieDetails extends Component {
 				this.setState({ selectedMovie: data.movie });
 			})
 			.catch((error) => this.setState({ error: error.toString() }));
+		fetch('/api/v1/ratings')
+			.then((response) => {
+				if (response.ok) {
+					return response.json();
+				}
+				throw new Error('The user rating for this movie could not be found.')
+			})
+			.then((data) => {
+				this.setState({ movieRatings: data.ratings })
+			})
+			.then((data) => {
+				if (this.state.movieRatings.length) {
+					let matchedMovieByRating = this.state.movieRatings.find( rating => parseInt(rating.movie_id) === parseInt(this.props.selectedMovieId));
+					this.setState({ userRating: matchedMovieByRating })
+				}
+			})
+			.catch((error) => this.setState({ error: error.toString() }));
 	};
 
 	render() {
-		let movieRating = Math.round(this.state.selectedMovie.average_rating);
-		let movieGenres = this.state.selectedMovie.genres;
 		return (
 			<div className="movie-details-container">
-				<div class="backdrop-container">
+			{this.state.userRating && <div className="user-rating">{this.state.userRating.rating}</div>}
+				<div className="backdrop-container">
 					<img
 						className="movie-backdrop"
 						src={this.state.selectedMovie.backdrop_path}
 						alt="still from a movie"
 					/>
 				</div>
-				<span class="movie-information-background" />
+				<span className="movie-information-background" />
 				<section className="movie-information">
 					<div className="information-elements">
-						<h1 class="movie-title">{this.state.selectedMovie.title}</h1>
-						<p className="movie-genres">{movieGenres}</p>
+						<h1 className="movie-title">{this.state.selectedMovie.title}</h1>
+						<p className="movie-genres">{this.state.selectedMovie.genres}</p>
 						<p>
-							Average rating: <span class="rating-number">{movieRating}</span>
+							Average rating: <span className="rating-number">{this.state.selectedMovie.average_rating}</span>
 						</p>
 						<p className="movie-overview">{this.state.selectedMovie.overview}</p>
 						<div className="return-button-container">
