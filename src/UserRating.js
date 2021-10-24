@@ -7,7 +7,6 @@ const UserRating = ({ userRating }) => {
 			<span className="your-rating">YOUR RATING:</span>
 			<section className="user-rating-container">
 				<div className="user-rating">{userRating}</div>
-				{/* {this.state.userRating && <div className="user-rating">{this.state.userRating.rating}</div>} */}
 			</section>
 		</div>
 	);

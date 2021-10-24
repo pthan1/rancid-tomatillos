@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import UserRating from './UserRating';
+import Form from './UserRatingForm';
 
 class MovieDetails extends Component {
 	constructor() {
@@ -45,11 +46,19 @@ class MovieDetails extends Component {
 			.catch((error) => this.setState({ error: error.toString() }));
 	};
 
+	addUserRating = (newRating) => {
+		this.setState({ userRating: newRating })
+	}
+
+	deleteUserRating = (event) => {
+		this.setState({ userRating: 0 })
+	}
+
 	render() {
 		return (
 			<div className="movie-details-container">
 				<div className="backdrop-container">
-					{this.state.userRating && <UserRating userRating={this.state.userRating} />}
+					{this.state.userRating !== 0 && <UserRating userRating={this.state.userRating} />}
 					<img
 						className="movie-backdrop"
 						src={this.state.selectedMovie.backdrop_path}
@@ -72,6 +81,7 @@ class MovieDetails extends Component {
 									Return to main
 								</button>
 							</Link>
+							<Form addUserRating={this.addUserRating}/>
 						</div>
 					</div>
 				</section>
