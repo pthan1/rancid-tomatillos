@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import UserRating from './UserRating';
 import Form from './UserRatingForm';
 
+
 class MovieDetails extends Component {
 	constructor() {
 		super();
@@ -47,11 +48,46 @@ class MovieDetails extends Component {
 	};
 
 	addUserRating = (newRating) => {
-		this.setState({ userRating: newRating })
+		this.setState({ userRating: newRating });
+		this.state.movieRatings.push(newRating);
+		console.log(this.state.movieRatings)
+		fetch('http://localhost:3001/api/v1/ratings', {
+      method: 'POST',
+      body: JSON.stringify({
+				movie_id: parseInt(this.state.selectedMovie.id),
+				rating: parseInt(newRating),
+				user_id: 1
+			}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+		.then(response => console.log(response))
+		.then(data => data);
 	}
 
 	deleteUserRating = (event) => {
-		this.setState({ userRating: 0 })
+		event.preventDefault();
+		console.log(this.state.movieRatings.rating_id)
+		let ratingId = this.state.movieRatings.find( rating => rating.movie_id === this.state.selectedMovie.id);
+		console.log(ratingId);
+		// fetch('http://localhost:3001/api/v1/ratings/:rating_id', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+		// 		movie_id: parseInt(this.state.selectedMovie.id),
+		// 		rating: parseInt(newRating),
+		// 		user_id: 1
+		// 	}),
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // })
+    // .then(response => response.json())
+		// .then(response => console.log(response))
+		// .then(data => data);
+		//
+		// this.setState({ userRating: 0 })
 	}
 
 	render() {
