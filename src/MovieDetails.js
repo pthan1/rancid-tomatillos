@@ -47,14 +47,18 @@ class MovieDetails extends Component {
 	};
 
 	addUserRating = (newRating) => {
-		this.setState({userRating: newRating})
+		this.setState({ userRating: newRating })
+	}
+
+	deleteUserRating = (event) => {
+		this.setState({ userRating: 0 })
 	}
 
 	render() {
 		return (
 			<div className="movie-details-container">
 				<div className="backdrop-container">
-					{this.state.userRating && <UserRating userRating={this.state.userRating} />}
+					{this.state.userRating !== 0 && <UserRating userRating={this.state.userRating} />}
 					<img
 						className="movie-backdrop"
 						src={this.state.selectedMovie.backdrop_path}

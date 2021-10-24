@@ -4,15 +4,18 @@ import './UserRatingForm.css';
 class Form extends Component {
   constructor() {
     super();
-    this.state={
-      rating: 0,
-    }
   }
 
   submitIndividualUserRating = (event) => {
     event.preventDefault();
-    this.setState({ rating: parseInt(event.target.innerText)})
-    this.props.addUserRating(this.state.rating);
+
+    this.props.addUserRating(parseInt(event.target.innerText));
+  }
+
+  deleteIndividualRating = (event) => {
+    event.preventDefault();
+
+    this.props.deleteUserRating();
   }
 
   render() {
@@ -22,7 +25,7 @@ class Form extends Component {
           <div className="rating-header">
             <div className="rating-header-title">Rate This Movie: </div>
           </div>
-          <div className="dd-list" onClick={this.submitIndividualUserRating}>
+          <div className="dd-list" onClick={event => this.submitIndividualUserRating(event)}>
             <button className="rating-1">1</button>
             <button className="rating-2">2</button>
             <button className="rating-3">3</button>
@@ -34,6 +37,7 @@ class Form extends Component {
             <button className="rating-9">9</button>
             <button className="rating-10">10</button>
           </div>
+          <button className="delete-rating" onClick={event => this.deleteIndividualRating}>🗑</button>
         </div>
       </form>
     )
