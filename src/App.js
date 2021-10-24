@@ -29,7 +29,8 @@ class App extends Component {
 			})
 			.then((data) => {
 				const cardMovieData = data.movies.map((movie) => {
-					return { id: movie.id, poster_path: movie.poster_path, title: movie.title };
+					let cardRating = Math.round(movie.average_rating)
+					return { id: movie.id, poster_path: movie.poster_path, title: movie.title, average_rating: cardRating };
 				});
 				this.setState({ movies: cardMovieData });
 			})
