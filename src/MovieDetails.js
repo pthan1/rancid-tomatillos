@@ -9,6 +9,7 @@ class MovieDetails extends Component {
 		this.state = {
 			selectedMovie: {},
 			movieRatings: [],
+			movieRating: {},
 			userRating: 0
 		};
 	}
@@ -34,25 +35,51 @@ class MovieDetails extends Component {
 			})
 			.then((data) => {
 				this.setState({ movieRatings: data.ratings });
+				console.log(data.ratings);
 			})
 			.then((data) => {
 				if (this.state.movieRatings.length) {
 					let matchedMovieByRating = this.state.movieRatings.find(
 						(rating) => parseInt(rating.movie_id) === parseInt(this.props.selectedMovieId)
 					);
-					this.setState({ userRating: matchedMovieByRating.rating });
+					console.log('matchedMovieByRating', matchedMovieByRating);
+					this.setState({ movieRating: matchedMovieByRating, userRating: matchedMovieByRating.rating });
 				}
 			})
 			.catch((error) => this.setState({ error: error.toString() }));
 	};
 
 	addUserRating = (newRating) => {
-		this.setState({ userRating: newRating })
-	}
+		this.setState({ userRating: newRating });
+		this.state.movieRatings.push(newRating);
+		console.log(this.state.movieRatings);
+		fetch('http://localhost:3001/api/v1/ratings', {
+			method: 'POST',
+			body: JSON.stringify({
+				movie_id: parseInt(this.state.selectedMovie.id),
+				rating: parseInt(newRating),
+				user_id: 1
+			}),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+			.then((response) => response.json())
+			.then((response) => console.log(response))
+			.then((data) => data);
+	};
 
-	deleteUserRating = (event) => {
-		this.setState({ userRating: 0 })
-	}
+	deleteUserRating = () => {
+		const ratingId = this.state.movieRating.rating_id;
+
+		fetch(`http://localhost:3001/api/v1/ratings/${ratingId}`, {
+			method: 'DELETE'
+		})
+			.then((response) => response.json())
+			.then((response) => console.log(response));
+
+		this.setState({ userRating: 0 });
+	};
 
 	render() {
 		return (
@@ -81,7 +108,7 @@ class MovieDetails extends Component {
 									Return to main
 								</button>
 							</Link>
-							<Form addUserRating={this.addUserRating}/>
+							<Form addUserRating={this.addUserRating} deleteUserRating={this.deleteUserRating} />
 						</div>
 					</div>
 				</section>

@@ -1,5 +1,9 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 
 app.set('port', process.env.PORT || 3001);
 app.use(express.json());
@@ -25,7 +29,8 @@ app.post('/api/v1/ratings', (request, response) => {
 	const rating_id = Date.now();
 	const { movie_id, rating, user_id } = request.body;
 
-	if (!body.movie_id || !body.rating || body.user_id) {
+	if (!body.movie_id || !body.rating || !body.user_id) {
+		console.log(body.movie_id, body.user_id, body.rating)
 		return response.status(400).json('Movie ID, rating, and user id are required');
 	}
 
