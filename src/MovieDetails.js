@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import UserRating from './UserRating';
 
 class MovieDetails extends Component {
 	constructor() {
@@ -28,15 +29,17 @@ class MovieDetails extends Component {
 				if (response.ok) {
 					return response.json();
 				}
-				throw new Error('The user rating for this movie could not be found.')
+				throw new Error('The user rating for this movie could not be found.');
 			})
 			.then((data) => {
-				this.setState({ movieRatings: data.ratings })
+				this.setState({ movieRatings: data.ratings });
 			})
 			.then((data) => {
 				if (this.state.movieRatings.length) {
-					let matchedMovieByRating = this.state.movieRatings.find( rating => parseInt(rating.movie_id) === parseInt(this.props.selectedMovieId));
-					this.setState({ userRating: matchedMovieByRating })
+					let matchedMovieByRating = this.state.movieRatings.find(
+						(rating) => parseInt(rating.movie_id) === parseInt(this.props.selectedMovieId)
+					);
+					this.setState({ userRating: matchedMovieByRating.rating });
 				}
 			})
 			.catch((error) => this.setState({ error: error.toString() }));
@@ -45,8 +48,8 @@ class MovieDetails extends Component {
 	render() {
 		return (
 			<div className="movie-details-container">
-			{this.state.userRating && <div className="user-rating">{this.state.userRating.rating}</div>}
 				<div className="backdrop-container">
+					{this.state.userRating && <UserRating userRating={this.state.userRating} />}
 					<img
 						className="movie-backdrop"
 						src={this.state.selectedMovie.backdrop_path}
@@ -59,7 +62,8 @@ class MovieDetails extends Component {
 						<h1 className="movie-title">{this.state.selectedMovie.title}</h1>
 						<p className="movie-genres">{this.state.selectedMovie.genres}</p>
 						<p>
-							Average rating: <span className="rating-number">{this.state.selectedMovie.average_rating}</span>
+							Average rating:{' '}
+							<span className="rating-number">{this.state.selectedMovie.average_rating}</span>
 						</p>
 						<p className="movie-overview">{this.state.selectedMovie.overview}</p>
 						<div className="return-button-container">
