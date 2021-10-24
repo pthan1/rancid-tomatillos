@@ -47,12 +47,12 @@ class MovieDetails extends Component {
 	};
 
 	addUserRating = (newRating) => {
-		this.setState({ userRating: newRating })
-	}
+		this.setState({ userRating: newRating });
+	};
 
 	deleteUserRating = (event) => {
-		this.setState({ userRating: 0 })
-	}
+		this.setState({ userRating: 0 });
+	};
 
 	render() {
 		return (
@@ -81,7 +81,7 @@ class MovieDetails extends Component {
 									Return to main
 								</button>
 							</Link>
-							<Form addUserRating={this.addUserRating}/>
+							<Form className="user-rating-form" addUserRating={this.addUserRating} />
 						</div>
 					</div>
 				</section>

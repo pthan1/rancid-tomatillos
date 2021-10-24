@@ -29,15 +29,20 @@ class App extends Component {
 			})
 			.then((data) => {
 				const cardMovieData = data.movies.map((movie) => {
-					let cardRating = Math.round(movie.average_rating)
-					return { id: movie.id, poster_path: movie.poster_path, title: movie.title, average_rating: cardRating };
+					let cardRating = Math.round(movie.average_rating);
+					return {
+						id: movie.id,
+						poster_path: movie.poster_path,
+						title: movie.title,
+						average_rating: cardRating
+					};
 				});
 				this.setState({ movies: cardMovieData });
 			})
 			.catch((error) => this.setState({ error: error.toString() }));
 		fetch('/api/v1/ratings')
-			.then(response => response.json())
-			.then(ratings => this.setState({ ratings: ratings.ratings }))
+			.then((response) => response.json())
+			.then((ratings) => this.setState({ ratings: ratings.ratings }));
 	};
 
 	getSelectedMovie = (id) => {
@@ -61,7 +66,7 @@ class App extends Component {
 			<main>
 				<section className="app-body">
 					<aside className="left-sidebar" />
-					<aside className="right-sidebar" />
+					{/* <aside className="right-sidebar" /> */}
 					<Header />
 					<div className="banner">
 						<section className="banner-text">
@@ -85,7 +90,12 @@ class App extends Component {
 							render={({ match }) => {
 								let selectedMovieId = match.params.id;
 								if (!this.state.error) {
-									return <MovieDetails selectedMovieId={selectedMovieId} userRatings={this.state.ratings} />;
+									return (
+										<MovieDetails
+											selectedMovieId={selectedMovieId}
+											userRatings={this.state.ratings}
+										/>
+									);
 								}
 							}}
 						/>
