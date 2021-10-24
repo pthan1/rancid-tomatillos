@@ -1,54 +1,65 @@
 .card-container {
-  width: 10rem;
-  height: auto;
+	width: 10rem;
+	height: auto;
 }
 
 .movie-card {
-  font-family: Helvetica;
-  color: white;
-  width: 10rem;
-  height: auto;
-  margin-bottom: 1rem;
-  /* border: 1px solid black; */
-  box-shadow: 2px 2px 2px gray;
-  opacity: 80%;
-  background: rgb(145, 24, 9);
-  background: linear-gradient(
-    135deg,
-    rgba(145, 24, 9, 1) 0%,
-    rgba(213, 28, 1, 1) 92%,
-    rgba(255, 61, 33, 1) 92%
-  );
-  border: 0px;
-  transition-duration: 0.15s;
-  text-shadow: 1px 1px 1px black;
+	position: relative;
+	font-family: Helvetica;
+	color: white;
+	width: 10rem;
+	height: auto;
+	margin-bottom: 1rem;
+	box-shadow: 2px 2px 2px gray;
+	opacity: 80%;
+	background: rgb(145, 24, 9);
+	background: linear-gradient(135deg, rgba(145, 24, 9, 1) 0%, rgba(213, 28, 1, 1) 92%, rgba(255, 61, 33, 1) 92%);
+	border: 0px;
+	transition-duration: 0.15s;
+	text-shadow: 1px 1px 1px black;
 }
 
 .movie-card:hover {
-  opacity: 100%;
-  box-shadow: 3px 3px 3px black;
-  width: 10.3rem;
-  padding-top: 0.3rem;
-  margin-top: -0.2rem;
-  margin-left: -0.15rem;
+	opacity: 100%;
+	box-shadow: 3px 3px 3px black;
+	width: 10.3rem;
+	padding-top: 0.3rem;
+	margin-top: -0.2rem;
+	margin-left: -0.15rem;
 }
 
 .movie-card > img {
-  padding-top: 0.3rem;
-  width: 9rem;
-  height: auto;
-  transition-duration: 0.15s;
+	padding-top: 0.3rem;
+	width: 9rem;
+	height: auto;
+	transition-duration: 0.15s;
 }
 
 .movie-card:hover > img {
-  padding-top: 0.3rem;
-  width: 9.3rem;
-  height: auto;
+	padding-top: 0.3rem;
+	width: 9.3rem;
+	height: auto;
+}
+
+.average-rating-container {
+	position: absolute;
+	display: flex;
+	top: 3%;
+	right: 0%;
+	border-radius: .5rem;
+	height: 2.5rem;
+	width: 2.5rem;
+	align-items: center;
+	justify-content: center;
+	background: url(./assets/johnny-automatic-tomatillo.svg);
+	background-repeat: no-repeat;
 }
 
 .average-rating {
-  height: 1rem;
-  width: 1rem;
-  background-color: white;
-  color: black;
+	top: 40%;
+	right: 15%;
+	color: red;
+	font-family: 'tomatoes';
+	position: relative;
+	padding-bottom: 2rem;
 }
