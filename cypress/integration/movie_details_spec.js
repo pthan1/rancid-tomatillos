@@ -49,55 +49,17 @@ describe('Movie Details page flows', () => {
 		cy.get('.movie-details-container').should('not.exist');
 	});
 
-	it("Should receive an input for the user's rating", () => {
-		cy.get('.rating-list').should('exist');
-		cy
-			.get('.rating-1')
-			.should('exist')
-			.get('.rating-2')
-			.should('exist')
-			.get('.rating-3')
-			.should('exist')
-			.get('.rating-4')
-			.should('exist')
-			.get('.rating-5')
-			.should('exist')
-			.get('.rating-6')
-			.should('exist')
-			.get('.rating-7')
-			.should('exist')
-			.get('.rating-8')
-			.should('exist')
-			.get('.rating-9')
-			.should('exist')
-			.get('.rating-10')
-			.should('exist');
+	it("Should display a user's rating", () => {
+		
 	});
 
-	it('Should be able to update a previous rating', () => {
-		cy.get('.rating-1').click({ force: true }).get('.user-rating-container').contains(1);
-	});
+	it("Should receive an input for the user's rating", () => {});
 
-	it("Should display a user's rating after it is added", () => {
-		cy.get('.rating-9')
-		.click()
-		.get('.user-rating')
-		.contains(9)
-	});
+	it('Should be able to delete a rating', () => {});
 
-	it('Should be able to delete a rating', () => {
-		cy.get('.delete-rating')
-		.click()
-		.get('.user-rating-container')
-		.should('not.exist')
-	});
+	it("Should display a user's rating after it is added", () => {});
 
-	it('Should not display a rating on a card if the user has deleted their rating', () => {
-		cy.get('.delete-rating')
-		.click()
-		.get('.user-rating')
-		.should('not.exist')
-	});
+	it('Should be able to update a previous rating', () => {});
 
-	it("Should display a user's rating", () => {});
+	it('Should not display a rating on a card if the user has deleted their rating', () => {});
 });
