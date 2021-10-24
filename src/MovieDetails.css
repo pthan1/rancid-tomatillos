@@ -12,6 +12,47 @@
 	justify-content: center;
 }
 
+.user-rating-container {
+	position: absolute;
+	right: 8%;
+	top: 15%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: url('./assets/johnny-automatic-tomatillo.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 1rem;
+	transform: rotate(30deg);
+	height: 4rem;
+	width: 4rem;
+	margin-top: .3rem;
+}
+
+.user-rating {
+	font-family: 'Tomatoes';
+	font-size: 3rem;
+	text-shadow: 2px 2px 2px black;
+	margin-left: .45rem;
+	color: #D51C01;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	height: 3rem;
+	width: 3rem;
+	transform: rotate(-30deg);
+}
+
+.your-rating {
+	position: absolute;
+	right: 5%;
+	top: 10%;
+	font-family: 'Tomatoes';
+	font-size: 2rem;
+	color: white;
+	text-shadow: 2px 2px 2px black;
+}
+
 .movie-information-background {
 	position: absolute;
 	top: 11%;

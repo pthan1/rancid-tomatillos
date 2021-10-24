@@ -45,8 +45,13 @@ class MovieDetails extends Component {
 	render() {
 		return (
 			<div className="movie-details-container">
-			{this.state.userRating && <div className="user-rating">{this.state.userRating.rating}</div>}
 				<div className="backdrop-container">
+				<div className="rating-information">
+					<span className="your-rating">YOUR RATING:</span>
+					<section className="user-rating-container">
+						{this.state.userRating && <div className="user-rating">{this.state.userRating.rating}</div>}
+					</section>
+				</div>
 					<img
 						className="movie-backdrop"
 						src={this.state.selectedMovie.backdrop_path}
