@@ -23,32 +23,28 @@ app.get('/api/v1/ratings', (request, response) => {
 app.post('/api/v1/ratings', (request, response) => {
 	const rating_id = Date.now();
 	const { movie_id, rating, user_id } = request.body;
-	// console.log(request.body);
-
 	app.locals.ratings.push({ rating_id, movie_id, rating, user_id });
 	response.status(201).json({ rating_id, movie_id, rating, user_id });
 });
 
-app.patch('/api/v1/ratings', (request, response) => {
-	//request body = { movie_id: <Integer>,
-	//rating: <Integer between 1 and 10>,
-	// rating_id: ,
-	//user_id: 2}
-	//Find a rating in the db with the same rating_id as that of the request body
-	const rating = app.locals.ratings.find((rating) => rating.rating_id === parseInt(request.body.rating_id));
-	console.log(request.body.rating_id);
-	// error handling
-	// if there's no rating in the database with the same rating_id as the request, then we to return a 404 message.
+app.patch('/api/v1/ratings/:rating_id', (request, response) => {
+	const body = request.body;
+	const rating = app.locals.ratings.find((rating) => rating.rating_id === parseInt(request.params.rating_id));
+
 	if (!rating) {
-		return response.status(404).json('Something went wrong.');
+		return response.status(404).json('Rating not found');
+	}
+	console.log('before', app.locals.ratings);
+
+	// validate only rating editable
+	if (body.movie_id || body.rating_id || body.user_id) {
+		response.status(400).json('Can only edit rating');
 	}
 
-	// If we find a rating in database, with the same rating_id as the request
-	//update that rating's rating to the rating in the request body
-	// push that new rating into app.locals.
-	// respond in json the new rating object
-	rating.rating = request.body.rating;
-	// app.locals.ratings.push(rating);
+	if (body.rating) {
+		rating.rating = body.rating;
+	}
+	console.log('after', app.locals.ratings);
 	response.json(rating);
 });
 
