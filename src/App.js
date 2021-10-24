@@ -82,9 +82,9 @@ class App extends Component {
 							exact
 							path="/movies/:id"
 							render={({ match }) => {
-								let selectedMovieId = parseInt(match.params.id);
+								let selectedMovieId = match.params.id;
 								if (!this.state.error) {
-									return <MovieDetails selectedMovieId={selectedMovieId} />;
+									return <MovieDetails selectedMovieId={selectedMovieId} userRatings={this.state.ratings} />;
 								}
 							}}
 						/>
