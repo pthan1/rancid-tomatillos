@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import UserRating from './UserRating';
+import Form from './UserRatingForm';
 
 class MovieDetails extends Component {
 	constructor() {
@@ -72,6 +73,7 @@ class MovieDetails extends Component {
 									Return to main
 								</button>
 							</Link>
+							<Form />
 						</div>
 					</div>
 				</section>
