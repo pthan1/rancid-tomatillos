@@ -1,4 +1,90 @@
 .rating-wrapper {
+  display: flex;
+  flex-direction: row;
   position: absolute;
-  /* top: 80%; */
+  left: 6%;
+  bottom: 9%;
+  /* background-color: white; */
+}
+
+.rating-header-title {
+  position: absolute;
+  bottom: 70%;
+  /* right: 0%; */
+  margin-bottom: 1rem;
+}
+
+.rating-1,
+.rating-2,
+.rating-3,
+.rating-4,
+.rating-5,
+.rating-6,
+.rating-7,
+.rating-8,
+.rating-9,
+.rating-10 {
+  margin-right: .3rem;
+  padding-right: .5rem;
+  height: 2rem;
+  font-family: 'Tomatoes';
+  font-size: 1.2rem;
+  background-color: white;
+  color: #D51C01;
+  border: 0px;
+  border-radius: .5rem;
+}
+
+.rating-1 {
+  padding-left: .5rem;
+  padding-right: .6rem;
+}
+
+.rating-1:hover,
+.rating-2:hover,
+.rating-3:hover,
+.rating-4:hover,
+.rating-5:hover,
+.rating-6:hover,
+.rating-7:hover,
+.rating-8:hover,
+.rating-9:hover,
+.rating-10:hover {
+  background-color: #D51C01;
+  color: white;
+}
+
+.rating-1:active,
+.rating-2:active,
+.rating-3:active,
+.rating-4:active,
+.rating-5:active,
+.rating-6:active,
+.rating-7:active,
+.rating-8:active,
+.rating-9:active,
+.rating-10:active {
+  background-color: #71ba0b;
+  color: white;
+}
+
+.delete-rating {
+  color: black;
+  font-family: 'Tomatoes';
+  font-size: 1.2rem;
+  background-color: white;
+  border: 1px solid black;
+  margin-left: .5rem;
+}
+
+.delete-rating:hover {
+  border: 1px solid #D51C01;
+  color: white;
+  background-color: #D51C01;
+}
+
+.delete-rating:active {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
 }
