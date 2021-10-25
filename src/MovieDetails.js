@@ -96,11 +96,8 @@ class MovieDetails extends Component {
 				<section className="movie-information">
 					<div className="information-elements">
 						<h1 className="movie-title">{this.state.selectedMovie.title}</h1>
-						<p className="movie-genres">{this.state.selectedMovie.genres}</p>
-						<p>
 							Average rating:{' '}
-							<span className="rating-number">{this.state.selectedMovie.average_rating}</span>
-						</p>
+							<span className="rating-number">{Math.round(this.state.selectedMovie.average_rating)}</span>
 						<p className="movie-overview">{this.state.selectedMovie.overview}</p>
 						<div className="return-button-container">
 							<Link to="/">
@@ -108,10 +105,10 @@ class MovieDetails extends Component {
 									Return to main
 								</button>
 							</Link>
-							<Form addUserRating={this.addUserRating} deleteUserRating={this.deleteUserRating} />
 						</div>
 					</div>
 				</section>
+				<Form addUserRating={this.addUserRating} deleteUserRating={this.deleteUserRating} />
 			</div>
 		);
 	}

@@ -38,6 +38,20 @@ describe('Movie Details page flows', () => {
 					}
 				}
 			})
+			.intercept('GET', 'http://localhost:3001/api/v1/ratings', {
+				statusCode: 200,
+				body: {
+					ratings: [
+						{
+							movie_id: 1,
+							id: 5351,
+							rating: 8,
+							user_id: 2,
+							rating_id: 5654
+						}
+					]
+				}
+			})
 			.visit('http://localhost:3000')
 			.get('.movie-card')
 			.click({ force: true });
@@ -49,15 +63,98 @@ describe('Movie Details page flows', () => {
 		cy.get('.movie-details-container').should('not.exist');
 	});
 
-	it("Should display a user's rating", () => {});
+	it("Should display a user's rating", () => {
+		cy.get('.rating-9')
+		.click()
+		.get('.user-rating')
+		.contains(9)
+	});
 
-	it("Should receive an input for the user's rating", () => {});
+	it("Should receive an input for the user's rating", () => {
+			cy.get('.rating-list').should('exist');
+			cy
+				.get('.rating-1')
+				.should('exist')
+				.get('.rating-2')
+				.should('exist')
+				.get('.rating-3')
+				.should('exist')
+				.get('.rating-4')
+				.should('exist')
+				.get('.rating-5')
+				.should('exist')
+				.get('.rating-6')
+				.should('exist')
+				.get('.rating-7')
+				.should('exist')
+				.get('.rating-8')
+				.should('exist')
+				.get('.rating-9')
+				.should('exist')
+				.get('.rating-10')
+				.should('exist');
+		});
 
-	it('Should be able to delete a rating', () => {});
+	it('Should be able to delete a rating', () => {
+		cy.get('.rating-9')
+		.click()
+		.get('.delete-rating')
+		.click()
+		.get('.user-rating-container')
+		.should('not.exist')
+	});
 
-	it("Should display a user's rating after it is added", () => {});
+	it("Should display a user's rating after it is added", () => {
+		cy.get('.rating-9')
+		.click()
+		.get('.user-rating')
+		.contains(9)
+	});
 
-	it('Should be able to update a previous rating', () => {});
+	it('Should be able to delete a rating', () => {
+		cy.get('.delete-rating')
+		.click()
+		.get('.user-rating-container')
+		.should('not.exist')
+	});
 
-	it('Should not display a rating on a card if the user has deleted their rating', () => {});
+	it("Should display persisting rating after leaving the page and returning", () => {
+		cy.intercept('GET', 'http://localhost:3001/api/v1/ratings', {
+			statusCode: 200,
+			body: {
+				ratings: [
+					{
+						movie_id: 1,
+						id: 5351,
+						rating: 8,
+						user_id: 2,
+						rating_id: 5654
+					}
+				]
+			}
+		})
+		.get('.rating-8')
+		.click()
+		.intercept('POST', 'http://localhost:3001/api/v1/ratings', {
+			statusCode: 200,
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: {
+				{
+					movie_id: parseInt(this.state.selectedMovie.id),
+					rating: parseInt(newRating),
+					user_id: 1
+				}
+			}
+		})
+		.get('.user-rating')
+		.contains(8)
+		.get('.return-to-main-button')
+		.click()
+		.get('.movie-card')
+		.click()
+		.get('.user-rating')
+		.contains(8)
+	});
 });

@@ -25,7 +25,7 @@ class Form extends Component {
 					<div className="rating-header">
 						<div className="rating-header-title">Rate This Movie: </div>
 					</div>
-					<div className="dd-list" onClick={(event) => this.submitIndividualUserRating(event)}>
+					<div className="rating-list" onClick={(event) => this.submitIndividualUserRating(event)}>
 						<button className="rating-1">1</button>
 						<button className="rating-2">2</button>
 						<button className="rating-3">3</button>
@@ -42,7 +42,7 @@ class Form extends Component {
 						className="delete-rating"
 						onClick={(event) => this.deleteIndividualRating(event)}
 					>
-						🗑
+						🗑 Delete
 					</button>
 				</div>
 			</form>

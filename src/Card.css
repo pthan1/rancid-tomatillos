@@ -41,14 +41,20 @@
 	height: auto;
 }
 
+.avg {
+	padding: 0px;
+	margin: 0px;
+	color: white;
+}
+
 .average-rating-container {
 	position: absolute;
 	display: flex;
-	top: 3%;
-	right: 0%;
+	bottom: -5%;
+	right: -12%;
 	border-radius: .5rem;
-	height: 2.5rem;
-	width: 2.5rem;
+	height: 2.2rem;
+	width: 2.2rem;
 	align-items: center;
 	justify-content: center;
 	background: url(./assets/johnny-automatic-tomatillo.svg);
@@ -58,8 +64,8 @@
 .average-rating {
 	top: 40%;
 	right: 15%;
-	color: red;
+	color: white;
 	font-family: 'tomatoes';
 	position: relative;
-	padding-bottom: 2rem;
+	padding-bottom: 3rem;
 }
