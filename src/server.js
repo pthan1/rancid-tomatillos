@@ -9,14 +9,7 @@ app.set('port', process.env.PORT || 3001);
 app.use(express.json());
 app.locals.title = 'User Ratings';
 
-app.locals.ratings = [
-	{
-		movie_id: 694919,
-		rating_id: 1634949641069,
-		user_id: 1,
-		rating: 4
-	}
-];
+app.locals.ratings = [];
 
 app.get('/api/v1/ratings', (request, response) => {
 	const ratings = app.locals.ratings;
@@ -30,7 +23,6 @@ app.post('/api/v1/ratings', (request, response) => {
 	const { movie_id, rating, user_id } = request.body;
 
 	if (!body.movie_id || !body.rating || !body.user_id) {
-		console.log(body.movie_id, body.user_id, body.rating)
 		return response.status(400).json('Movie ID, rating, and user id are required');
 	}
 
@@ -45,7 +37,6 @@ app.patch('/api/v1/ratings/:rating_id', (request, response) => {
 	if (!rating) {
 		return response.status(404).json('Rating not found');
 	}
-	console.log('before', app.locals.ratings);
 
 	// validate only rating editable
 	if (body.movie_id || body.rating_id || body.user_id) {
@@ -55,7 +46,6 @@ app.patch('/api/v1/ratings/:rating_id', (request, response) => {
 	if (body.rating) {
 		rating.rating = body.rating;
 	}
-	console.log('after', app.locals.ratings);
 	response.status(201).json(rating);
 });
 
@@ -73,5 +63,4 @@ app.delete('/api/v1/ratings/:rating_id', (request, response) => {
 });
 
 app.listen(app.get('port'), () => {
-	console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}`);
 });

@@ -10,7 +10,8 @@ class MovieDetails extends Component {
 			selectedMovie: {},
 			movieRatings: [],
 			movieRating: {},
-			userRating: 0
+			userRating: 0,
+			hasBeenRated: false
 		};
 	}
 
@@ -35,14 +36,12 @@ class MovieDetails extends Component {
 			})
 			.then((data) => {
 				this.setState({ movieRatings: data.ratings });
-				console.log(data.ratings);
 			})
 			.then((data) => {
 				if (this.state.movieRatings.length) {
 					let matchedMovieByRating = this.state.movieRatings.find(
 						(rating) => parseInt(rating.movie_id) === parseInt(this.props.selectedMovieId)
 					);
-					console.log('matchedMovieByRating', matchedMovieByRating);
 					this.setState({ movieRating: matchedMovieByRating, userRating: matchedMovieByRating.rating });
 				}
 			})
@@ -50,23 +49,35 @@ class MovieDetails extends Component {
 	};
 
 	addUserRating = (newRating) => {
+		if (!this.state.hasBeenRated) {
+			fetch('http://localhost:3001/api/v1/ratings', {
+				method: 'POST',
+				body: JSON.stringify({
+					movie_id: parseInt(this.state.selectedMovie.id),
+					rating: parseInt(newRating),
+					user_id: 1
+				}),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+				.then((response) => response.json())
+				.then((data) => this.setState({ movieRating: data }))
+			this.setState({ hasBeenRated: true })
+		} else if (this.state.hasBeenRated) {
+			fetch(`http://localhost:3001/api/v1/ratings/${this.state.movieRating.rating_id}`, {
+				method: 'PATCH',
+				body: JSON.stringify({
+					rating: parseInt(newRating)
+				}),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+				.then((response) => response.json())
+				.then((data) => data);
+		}
 		this.setState({ userRating: newRating });
-		this.state.movieRatings.push(newRating);
-		console.log(this.state.movieRatings);
-		fetch('http://localhost:3001/api/v1/ratings', {
-			method: 'POST',
-			body: JSON.stringify({
-				movie_id: parseInt(this.state.selectedMovie.id),
-				rating: parseInt(newRating),
-				user_id: 1
-			}),
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		})
-			.then((response) => response.json())
-			.then((response) => console.log(response))
-			.then((data) => data);
 	};
 
 	deleteUserRating = () => {
@@ -76,9 +87,8 @@ class MovieDetails extends Component {
 			method: 'DELETE'
 		})
 			.then((response) => response.json())
-			.then((response) => console.log(response));
 
-		this.setState({ userRating: 0 });
+		this.setState({ userRating: 0, hasBeenRated: false });
 	};
 
 	render() {
