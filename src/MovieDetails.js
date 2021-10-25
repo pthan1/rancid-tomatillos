@@ -35,14 +35,14 @@ class MovieDetails extends Component {
 			})
 			.then((data) => {
 				this.setState({ movieRatings: data.ratings });
-				console.log(data.ratings);
+				console.log('GET, ratings, componentDidMount', data.ratings);
 			})
 			.then((data) => {
 				if (this.state.movieRatings.length) {
 					let matchedMovieByRating = this.state.movieRatings.find(
 						(rating) => parseInt(rating.movie_id) === parseInt(this.props.selectedMovieId)
 					);
-					console.log('matchedMovieByRating', matchedMovieByRating);
+					console.log('GET, matchedMovieByRating, componentDidMount', matchedMovieByRating);
 					this.setState({ movieRating: matchedMovieByRating, userRating: matchedMovieByRating.rating });
 				}
 			})
@@ -50,23 +50,40 @@ class MovieDetails extends Component {
 	};
 
 	addUserRating = (newRating) => {
+		if (!this.state.movieRating) {
+			fetch('http://localhost:3001/api/v1/ratings', {
+				method: 'POST',
+				body: JSON.stringify({
+					movie_id: parseInt(this.state.selectedMovie.id),
+					rating: parseInt(newRating),
+					user_id: 1
+				}),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+				.then((response) => response.json())
+				.then((response) => console.log('POST', response))
+				.then((data) => data);
+		}
+
+		if (this.state.movieRating) {
+			fetch(`http://localhost:3001/api/v1/ratings/${this.state.movieRating.rating_id}`, {
+				method: 'PATCH',
+				body: JSON.stringify({
+					rating: parseInt(newRating)
+				}),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+				.then((response) => response.json())
+				.then((response) => console.log('PATCH', response))
+				.then((data) => data);
+		}
 		this.setState({ userRating: newRating });
 		this.state.movieRatings.push(newRating);
 		console.log(this.state.movieRatings);
-		fetch('http://localhost:3001/api/v1/ratings', {
-			method: 'POST',
-			body: JSON.stringify({
-				movie_id: parseInt(this.state.selectedMovie.id),
-				rating: parseInt(newRating),
-				user_id: 1
-			}),
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		})
-			.then((response) => response.json())
-			.then((response) => console.log(response))
-			.then((data) => data);
 	};
 
 	deleteUserRating = () => {
@@ -79,6 +96,20 @@ class MovieDetails extends Component {
 			.then((response) => console.log(response));
 
 		this.setState({ userRating: 0 });
+	};
+
+	componentDidUpdate = () => {
+		fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.selectedMovieId}`)
+			.then((response) => {
+				if (response.ok) {
+					return response.json();
+				}
+				throw new Error('Something went wrong. Please try again.');
+			})
+			.then((data) => {
+				this.setState({ selectedMovie: data.movie });
+			})
+			.catch((error) => this.setState({ error: error.toString() }));
 	};
 
 	render() {
