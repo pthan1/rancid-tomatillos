@@ -10,7 +10,8 @@ class MovieDetails extends Component {
 			selectedMovie: {},
 			movieRatings: [],
 			movieRating: {},
-			userRating: 0
+			userRating: 0,
+			hasBeenRated: false
 		};
 	}
 
@@ -35,14 +36,12 @@ class MovieDetails extends Component {
 			})
 			.then((data) => {
 				this.setState({ movieRatings: data.ratings });
-				console.log('GET, ratings, componentDidMount', data.ratings);
 			})
 			.then((data) => {
 				if (this.state.movieRatings.length) {
 					let matchedMovieByRating = this.state.movieRatings.find(
 						(rating) => parseInt(rating.movie_id) === parseInt(this.props.selectedMovieId)
 					);
-					console.log('GET, matchedMovieByRating, componentDidMount', matchedMovieByRating);
 					this.setState({ movieRating: matchedMovieByRating, userRating: matchedMovieByRating.rating });
 				}
 			})
@@ -50,7 +49,7 @@ class MovieDetails extends Component {
 	};
 
 	addUserRating = (newRating) => {
-		if (!this.state.movieRating) {
+		if (!this.state.hasBeenRated) {
 			fetch('http://localhost:3001/api/v1/ratings', {
 				method: 'POST',
 				body: JSON.stringify({
@@ -63,11 +62,9 @@ class MovieDetails extends Component {
 				}
 			})
 				.then((response) => response.json())
-				.then((response) => console.log('POST', response))
-				.then((data) => data);
-		}
-
-		if (this.state.movieRating) {
+				.then((data) => this.setState({ movieRating: data }))
+			this.setState({ hasBeenRated: true })
+		} else if (this.state.hasBeenRated) {
 			fetch(`http://localhost:3001/api/v1/ratings/${this.state.movieRating.rating_id}`, {
 				method: 'PATCH',
 				body: JSON.stringify({
@@ -78,12 +75,9 @@ class MovieDetails extends Component {
 				}
 			})
 				.then((response) => response.json())
-				.then((response) => console.log('PATCH', response))
 				.then((data) => data);
 		}
 		this.setState({ userRating: newRating });
-		this.state.movieRatings.push(newRating);
-		console.log(this.state.movieRatings);
 	};
 
 	deleteUserRating = () => {
@@ -93,23 +87,8 @@ class MovieDetails extends Component {
 			method: 'DELETE'
 		})
 			.then((response) => response.json())
-			.then((response) => console.log(response));
 
-		this.setState({ userRating: 0 });
-	};
-
-	componentDidUpdate = () => {
-		fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.selectedMovieId}`)
-			.then((response) => {
-				if (response.ok) {
-					return response.json();
-				}
-				throw new Error('Something went wrong. Please try again.');
-			})
-			.then((data) => {
-				this.setState({ selectedMovie: data.movie });
-			})
-			.catch((error) => this.setState({ error: error.toString() }));
+		this.setState({ userRating: 0, hasBeenRated: false });
 	};
 
 	render() {
