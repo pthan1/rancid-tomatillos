@@ -42,7 +42,7 @@ class Form extends Component {
 						className="delete-rating"
 						onClick={(event) => this.deleteIndividualRating(event)}
 					>
-						🗑
+						🗑 Delete
 					</button>
 				</div>
 			</form>

@@ -66,11 +66,11 @@ class App extends Component {
 			<main>
 				<section className="app-body">
 					<aside className="left-sidebar" />
-					{/* <aside className="right-sidebar" /> */}
+					<aside className="right-sidebar" />
 					<Header />
 					<div className="banner">
 						<section className="banner-text">
-							<h2>Testing this element. Wow.</h2>
+							<h2>This isn't default text. It's a feature.</h2>
 						</section>
 					</div>
 					<section className="all-movies-container">
