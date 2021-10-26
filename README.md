@@ -17,6 +17,9 @@ Rancid Tomatillos is a React app that displays and compares movies.  Users can f
 2. After installing the project dependencies, ```cd``` into the ```src``` folder.  Run ```nodemon server.js``` to start the Express server.
 3. To start the app, run ```npm start``` in the project directory and navigate to ```http://localhost:3000```.
 
+## Demonstration
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/82003147/138905413-e0f1cb46-1a96-447d-84f6-0e169963ecee.gif)
 
 ## Reflections
 
