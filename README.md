@@ -30,7 +30,7 @@ Wins
 - Creating a fully-functional React app, then iterating and adding differentfeatures/technologies such as:
     -   Dynamic Routing with React Router
     -   Front End testing with Cypress
-    -   Creating a REST API to add/delete ratings with Express.js
+    -   Handrolling a REST API to add/delete ratings with Express.js
 
 Challenges
 - Async fetch calls
