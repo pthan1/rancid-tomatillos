@@ -27,3 +27,6 @@ Rancid Tomatillos is a React app that displays and compares movies.  Users can f
 - Express API
 - Cypress
 
+##About Us:
+- [jphorner](https://github.com/jphorner)
+- [pthan1](https://github.com/pthan1)
