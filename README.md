@@ -17,6 +17,15 @@ Rancid Tomatillos is a React app that displays and compares movies.  Users can f
 2. After installing the project dependencies, ```cd``` into the ```src``` folder.  Run ```nodemon server.js``` to start the Express server.
 3. To start the app, run ```npm start``` in the project directory and navigate to ```http://localhost:3000```.
 
+
+## Reflections
+
+This was a project whose difficulty was clearly demonstrated throughout its progression. Although it seemed straightforward at first, the complexity of the website increased with each new technology we introduced.
+
+The React components, though initially challenging to set up, were simple compared to the process of setting up our Express backend and API calls. Between rendering, routing, fetching, and passing props between components, we were regularly straining to remember which parts of our application held onto which pieces of data. This complex web of information was a wake-up call towards the importance of data structure and clear documentation.
+
+Even when the code proved challenging, however, the wins proved all the more satisfying. This project truly pushed us to experiment with new technologies, resolve errors in unique ways, and test the limits of our technical skill sets.
+
 ## Technologies Used
 - HTML
 - CSS
