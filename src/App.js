@@ -70,7 +70,7 @@ class App extends Component {
 					<Header />
 					<div className="banner">
 						<section className="banner-text">
-							<h2>This isn't default text. It's a feature.</h2>
+							<h2>Skip the box office. This evening is in your hands.</h2>
 						</section>
 					</div>
 					<section className="all-movies-container">
