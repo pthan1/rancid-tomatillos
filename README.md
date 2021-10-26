@@ -3,10 +3,8 @@ Rancid Tomatillos is a React app that displays and compares movies.  Users can f
 # Screenshots
 
 ## Get the Code
-1. Go to the project's [github page](https://github.com/codefordenver/partner-finder).
-1. Find the green "Code" button
-1. Click the clipboard icon to copy a link to the git repo.
-    ![](./docs/github-code-button.png)
+1. Go to the project's [github page](https://github.com/codefordenver/rancid-tomatillos).
+1. Copy a link to the git repo by clicking the green "Code" button and copying the SSH link.
 1. In a terminal, navigate to the directory where you want to create the project folder and clone the repo:
     ```bash
     git clone <git-repo-name>
@@ -22,11 +20,24 @@ Rancid Tomatillos is a React app that displays and compares movies.  Users can f
 ## Technologies Used
 - HTML
 - CSS
-- Javascript
+- JavaScript
 - React
-- Express API
-- Cypress
+- Express.js (REST API)
+- Cypress (Testing)
 
+## Wins & Challenges
+Wins
+- Creating a fully-functional React app, then iterating and adding differentfeatures/technologies such as:
+    -   Dynamic Routing with React Router
+    -   Front End testing with Cypress
+    -   Creating a REST API to add/delete ratings with Express.js
+
+Challenges
+- Async fetch calls
+    - We had a few infinite loops of network calls that we were able to locate and fix with the browser's network tab.
+- Figuring out the Cypress syntax
+
+- Implementing Express API
 ## About Us:
 - [jphorner](https://github.com/jphorner)
 - [pthan1](https://github.com/pthan1)
