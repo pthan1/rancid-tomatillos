@@ -7,7 +7,7 @@ Rancid Tomatillos is a React app that displays and compares movies.  Users can f
 1. Copy a link to the git repo by clicking the green "Code" button and copying the SSH link.
 1. In a terminal, navigate to the directory where you want to create the project folder and clone the repo:
     ```bash
-    git clone <git-repo-name>
+    git clone git@github.com:pthan1/rancid-tomatillos.git
     ```
     
 ## Running the App
